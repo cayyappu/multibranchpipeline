@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+    parameters {
+            string(name: 'edevDeployEnvironment', defaultValue: 'edev1')
+            string(name: 'tagLandingPage', defaultValue: '11.04.0')
+            string(name: 'releaseVersion', defaultValue: '11.04.0')
+    stages {
+        stage('Build') {
+            steps {
+               script {
+                    ./gm_jenkin_build.sh ${tagLandingPage}
+               }
+            }
+        }
+    }
+}
