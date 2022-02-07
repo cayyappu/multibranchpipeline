@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'OEL' }
+    agent any
     parameters {
         string(name: 'edevDeployEnvironment', defaultValue: 'edev1')
         string(name: 'tagLandingPage', defaultValue: '11.04.0')
@@ -12,7 +12,8 @@ pipeline {
                    sh './gm_jenkins_build.sh ${tagLandingPage}'
                }
             }
-        } stage('Push to Artifactory') {
+        }
+        stage('Push to Artifactory') {
             steps {
                  script {
                      sh './gm_jenkins_build2.sh ${tagLandingPage}'
