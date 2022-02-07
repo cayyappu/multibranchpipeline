@@ -9,7 +9,7 @@ pipeline {
         stage('Build') {
             steps {
                script {
-                   sh gm_jenkins_build.sh ${tagLandingPage}
+                   sh './gm_jenkins_build.sh ${tagLandingPage}'
                }
             }
         }
